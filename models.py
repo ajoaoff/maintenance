@@ -36,7 +36,7 @@ class MaintenanceWindow:
             items = list()
         mw_id = kwargs.get('mw_id')
         self.id = mw_id if mw_id else uuid4().hex
-        self.description = kwargs.get('description')
+        self.description = kwargs.get('description', None)
         self.start = start
         self.end = end
         self._switches = list()
@@ -86,7 +86,7 @@ class MaintenanceWindow:
         start = cls.str_to_datetime(mw_dict['start'])
         end = cls.str_to_datetime(mw_dict['end'])
         items = mw_dict['items']
-        description = mw_dict['description'] or None
+        description = mw_dict.get('description', None)
         return cls(start, end, controller, items=items, mw_id=mw_id,
                    description=description)
 
