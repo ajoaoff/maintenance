@@ -36,7 +36,7 @@ class TestMW(TestCase):
             'end': self.end.strftime(TIME_FMT),
             'id': self.maintenance.id,
             'items': self.items,
-            'status': Status.TO_RUN
+            'status': Status.PENDING
         }
         self.assertEqual(mw_dict, expected_dict)
 

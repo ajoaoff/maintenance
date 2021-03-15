@@ -21,7 +21,7 @@ TIME_FMT = "%Y-%m-%dT%H:%M:%S%z"
 class Status(Enum):
     """Maintenance windows status."""
 
-    TO_RUN = 0
+    PENDING = 0
     RUNNING = 1
     ENDED = 2
 
@@ -52,7 +52,7 @@ class MaintenanceWindow:
         self._links = list()
         self._unis = list()
         self.items = items
-        self.status = kwargs.get('status', Status.TO_RUN)
+        self.status = kwargs.get('status', Status.PENDING)
 
     @property
     def items(self):
@@ -98,7 +98,7 @@ class MaintenanceWindow:
         end = cls.str_to_datetime(mw_dict['end'])
         items = mw_dict['items']
         description = mw_dict.get('description')
-        status = mw_dict.get('status', Status.TO_RUN)
+        status = mw_dict.get('status', Status.PENDING)
         return cls(start, end, controller, items=items, mw_id=mw_id,
                    description=description, status=status)
 
