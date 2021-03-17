@@ -190,7 +190,7 @@ class MaintenanceWindow:
 
     def end_mw(self):
         """Actions taken when a maintenance window finishes."""
-        self.status = Status.ENDED
+        self.status = Status.FINISHED
         self.maintenance_event('end')
 
 
