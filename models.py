@@ -23,7 +23,7 @@ class Status(Enum):
 
     PENDING = 0
     RUNNING = 1
-    ENDED = 2
+    FINISHED = 2
 
 
 class MaintenanceWindow:
