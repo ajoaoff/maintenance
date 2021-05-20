@@ -91,8 +91,8 @@ class Main(KytosNApp):
             return jsonify({'response': f'Maintenance with id {mw_id} not '
                                         f'found'}), 404
         if maintenance.status == Status.RUNNING:
-            return jsonify({'response': f'Updating a running maintenance is '
-                                        f'not allowed'}), 400
+            return jsonify({'response': 'Updating a running maintenance is '
+                                        'not allowed'}), 400
         try:
             maintenance.update(data)
         except ValueError as error:
@@ -108,8 +108,8 @@ class Main(KytosNApp):
             return jsonify({'response': f'Maintenance with id {mw_id} not '
                                         f'found'}), 404
         if maintenance.status == Status.RUNNING:
-            return jsonify({'response': f'Deleting a running maintenance is '
-                                        f'not allowed'}), 400
+            return jsonify({'response': 'Deleting a running maintenance is '
+                                        'not allowed'}), 400
         self.scheduler.remove(maintenance)
         del self.maintenances[mw_id]
         return jsonify({'response': f'Maintenance with id {mw_id} '
